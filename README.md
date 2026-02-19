@@ -1,9 +1,8 @@
-
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Sojourne News | Global Perspective</title>
+  <title>Fifi's Drag Race Season 4 | Sojourne News</title>
 
   <!-- Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -57,7 +56,6 @@
       display: flex;
       justify-content: center;
       gap: 20px;
-      flex-wrap: wrap;
     }
     .top-bar span { cursor: pointer; }
     .top-bar span:hover { color: var(--accent); }
@@ -91,8 +89,6 @@
     }
     .brand span { color: var(--accent); }
 
-    .header-actions { display: flex; gap: 15px; align-items: center; }
-    
     .menu-toggle {
       display: none;
       font-size: 1.5rem;
@@ -178,226 +174,124 @@
 
     /* --- Main Layout --- */
     .container {
-      max-width: 1200px;
+      max-width: 1000px; /* Narrower for reading */
       margin: 2rem auto;
       padding: 0 1rem;
       display: grid;
-      grid-template-columns: 2fr 1fr;
+      grid-template-columns: 1fr;
       gap: 2rem;
     }
 
-    /* --- Breaking News Banner --- */
-    .breaking-news {
-      background: var(--primary);
-      color: var(--white);
-      padding: 0.8rem;
+    /* --- Article Header --- */
+    .article-header {
       text-align: center;
-      font-weight: 600;
-    }
-    .breaking-news span {
-      background: var(--accent);
-      padding: 0.2rem 0.6rem;
-      margin-right: 10px;
-      border-radius: 3px;
-      font-size: 0.8rem;
-      color: var(--white);
-    }
-
-    /* --- Hero Section --- */
-    .hero-section {
-      grid-column: 1 / -1;
-      display: grid;
-      grid-template-columns: 1.5fr 1fr;
-      gap: 1.5rem;
       margin-bottom: 2rem;
-      border-bottom: 1px solid var(--border);
-      padding-bottom: 2rem;
-    }
-
-    .hero-img {
-      width: 100%;
-      height: 400px;
-      object-fit: cover;
-      border-radius: 8px;
-      background-color: #eee;
-    }
-
-    .hero-content {
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
     }
 
     .category-tag {
       color: var(--accent);
       font-weight: 700;
       text-transform: uppercase;
-      font-size: 0.8rem;
+      font-size: 0.9rem;
       letter-spacing: 1px;
-      margin-bottom: 0.5rem;
+      margin-bottom: 1rem;
+      display: block;
     }
 
-    .hero-content h1 {
-      font-size: 2.2rem;
+    .article-header h1 {
+      font-size: 2.5rem;
       line-height: 1.2;
       margin-bottom: 1rem;
     }
 
-    .hero-content p {
+    .article-meta {
       color: var(--text-grey);
-      font-size: 1.1rem;
+      font-size: 0.9rem;
       margin-bottom: 1.5rem;
     }
 
-    .read-more {
-      display: inline-block;
-      padding: 0.7rem 1.5rem;
+    .article-meta i { margin-right: 5px; color: var(--accent); }
+
+    /* --- Hero Image --- */
+    .article-hero-img {
+      width: 100%;
+      height: 500px;
+      object-fit: cover;
+      border-radius: 8px;
+      margin-bottom: 2rem;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+    }
+
+    /* --- Article Content --- */
+    .article-content {
+      font-size: 1.1rem;
+      line-height: 1.8;
+      color: var(--text-dark);
+      max-width: 800px;
+      margin: 0 auto;
+    }
+
+    .article-content p {
+      margin-bottom: 1.5rem;
+    }
+
+    .article-content strong {
+      color: var(--primary);
+    }
+
+    .quote {
+      border-left: 4px solid var(--accent);
+      padding-left: 1.5rem;
+      margin: 2rem 0;
+      font-style: italic;
+      color: var(--text-grey);
+      font-size: 1.2rem;
+    }
+
+    .source {
+      margin-top: 2rem;
+      padding-top: 1rem;
+      border-top: 1px solid var(--border);
+      font-weight: 600;
+      color: var(--primary);
+    }
+
+    /* --- Share Buttons --- */
+    .share-buttons {
+      margin-top: 2rem;
+      display: flex;
+      gap: 10px;
+    }
+
+    .share-btn {
+      padding: 0.5rem 1rem;
+      border: 1px solid var(--border);
+      border-radius: 4px;
+      cursor: pointer;
+      transition: all 0.3s;
+      font-size: 0.9rem;
+    }
+
+    .share-btn:hover {
       background: var(--primary);
       color: var(--white);
-      font-weight: 600;
-      border-radius: 4px;
-      transition: background 0.3s;
-      cursor: pointer;
-      width: fit-content;
-    }
-    .read-more:hover { background: var(--accent); }
-
-    /* --- Articles Grid --- */
-    .section-title {
-      font-size: 1.5rem;
-      border-left: 4px solid var(--accent);
-      padding-left: 1rem;
-      margin-bottom: 1.5rem;
-    }
-
-    .articles-grid {
-      display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap: 1.5rem;
-    }
-
-    .news-card {
-      background: var(--white);
-      border: 1px solid var(--border);
-      border-radius: 8px;
-      overflow: hidden;
-      transition: transform 0.3s ease, box-shadow 0.3s ease;
-      cursor: pointer;
-      display: flex;
-      flex-direction: column;
-    }
-
-    .news-card:hover {
-      transform: translateY(-5px);
-      box-shadow: 0 10px 20px rgba(0,0,0,0.1);
-    }
-
-    .news-card img {
-      width: 100%;
-      height: 200px;
-      object-fit: cover;
-      background-color: #eee;
-    }
-
-    .card-content { padding: 1.2rem; flex-grow: 1; display: flex; flex-direction: column;}
-
-    .card-content h3 {
-      font-size: 1.1rem;
-      margin-bottom: 0.5rem;
-      line-height: 1.4;
-    }
-
-    .card-content p {
-      font-size: 0.9rem;
-      color: var(--text-grey);
-      margin-bottom: 1rem;
-      flex-grow: 1;
-      display: -webkit-box;
-      -webkit-line-clamp: 3;
-      -webkit-box-orient: vertical;
-      overflow: hidden;
-    }
-
-    .meta {
-      font-size: 0.8rem;
-      color: #9aa0b3;
-      display: flex;
-      justify-content: space-between;
-      margin-top: auto;
-    }
-
-    .category-label {
-      color: var(--accent);
-      font-weight: 700;
-      text-transform: uppercase;
-      font-size: 0.75rem;
-      margin-bottom: 0.5rem;
-      display: block;
-    }
-
-    /* --- Sidebar --- */
-    aside {
-      background: var(--light-bg);
-      padding: 1.5rem;
-      border-radius: 8px;
-      height: fit-content;
-      position: sticky;
-      top: 90px;
-    }
-
-    aside h3 {
-      border-bottom: 2px solid var(--accent);
-      padding-bottom: 0.5rem;
-      margin-bottom: 1.5rem;
-      font-size: 1.2rem;
-    }
-
-    .sidebar-list li {
-      margin-bottom: 1rem;
-      border-bottom: 1px solid #dde2ef;
-      padding-bottom: 1rem;
-      cursor: pointer;
-      transition: opacity 0.3s;
-    }
-
-    .sidebar-list li:hover { opacity: 0.7; }
-    .sidebar-list li:last-child { border-bottom: none; }
-
-    .sidebar-list .rank {
-      color: var(--accent);
-      font-weight: 900;
-      font-size: 1.2rem;
-      margin-right: 8px;
-    }
-
-    .sidebar-list h4 {
-      font-size: 0.95rem;
-      font-family: 'Inter', sans-serif;
-      font-weight: 600;
-      margin-bottom: 0.3rem;
-      display: inline;
-    }
-
-    .sidebar-list small {
-      display: block;
-      color: var(--text-grey);
-      font-size: 0.8rem;
-      margin-top: 0.3rem;
+      border-color: var(--primary);
     }
 
     /* --- Newsletter --- */
     .newsletter-box {
       background: var(--primary);
       color: var(--white);
-      padding: 1.5rem;
+      padding: 2rem;
       border-radius: 8px;
-      margin-top: 2rem;
+      margin-top: 3rem;
       text-align: center;
     }
     .newsletter-box h4 { color: var(--white); margin-bottom: 0.5rem; }
-    .newsletter-box p { font-size: 0.85rem; margin-bottom: 10px; }
+    .newsletter-box p { font-size: 0.9rem; margin-bottom: 15px; }
     .newsletter-box input {
       width: 100%;
+      max-width: 300px;
       padding: 0.6rem;
       margin-bottom: 0.5rem;
       border: none;
@@ -405,6 +299,7 @@
     }
     .newsletter-box button {
       width: 100%;
+      max-width: 300px;
       background: var(--accent);
       color: var(--white);
       border: none;
@@ -422,30 +317,24 @@
       color: var(--white);
       padding: 3rem 1rem;
       margin-top: 3rem;
+      text-align: center;
     }
 
     .footer-grid {
       max-width: 1200px;
       margin: 0 auto;
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      display: flex;
+      justify-content: space-between;
+      flex-wrap: wrap;
       gap: 2rem;
     }
 
-    .footer-col h4 {
-      color: var(--accent);
-      margin-bottom: 1rem;
-      font-family: 'Inter', sans-serif;
-      text-transform: uppercase;
-      letter-spacing: 1px;
-    }
-
-    .footer-col ul li { margin-bottom: 0.5rem; }
-    .footer-col a { color: #cfd5e6; transition: color 0.3s; }
+    .footer-col { text-align: left; }
+    .footer-col h4 { color: var(--accent); margin-bottom: 1rem; }
+    .footer-col a { color: #cfd5e6; display: block; margin-bottom: 0.5rem; }
     .footer-col a:hover { color: var(--accent); }
 
     .copyright {
-      text-align: center;
       margin-top: 2rem;
       padding-top: 1rem;
       border-top: 1px solid rgba(255,255,255,0.1);
@@ -455,13 +344,9 @@
 
     /* --- Responsive --- */
     @media (max-width: 768px) {
-      .hero-section { grid-template-columns: 1fr; }
-      .hero-img { height: 250px; }
-      .container { grid-template-columns: 1fr; }
-      .articles-grid { grid-template-columns: 1fr; }
-      .brand { font-size: 1.5rem; }
-      aside { position: static; }
-      .top-bar { flex-direction: column; gap: 5px; }
+      .article-header h1 { font-size: 1.8rem; }
+      .article-hero-img { height: 250px; }
+      .container { padding: 0 1rem; }
     }
   </style>
 </head>
@@ -470,21 +355,15 @@
   <!-- Top Info Bar -->
   <div class="top-bar">
     <span id="current-date"></span>
-    <span>New York, NY: 72°F</span>
+    <span>Manila, PH: 88°F</span>
     <span onclick="scrollToSubscribe()">Subscribe</span>
     <span>Login</span>
-  </div>
-
-  <!-- Breaking News -->
-  <div class="breaking-news">
-    <span>BREAKING</span>
-    <span id="breaking-text">Global leaders reach historic climate agreement at summit</span>
   </div>
 
   <!-- Header -->
   <header>
     <div class="header-container">
-      <div class="brand">Sojourner<span>News</span></div>
+      <div class="brand">Sojourne<span>News</span></div>
       <div class="header-actions">
         <i class="fas fa-bars menu-toggle" onclick="toggleMenu()"></i>
         <button onclick="scrollToSubscribe()">Subscribe</button>
@@ -497,21 +376,133 @@
     <div class="nav-container">
       <div class="nav-links" id="nav-links">
         <a href="#" onclick="filterCategory('all')">Home</a>
-        <a href="#" onclick="filterCategory('world')">World</a>
-        <a href="#" onclick="filterCategory('politics')">Politics</a>
-        <a href="#" onclick="filterCategory('business')">Business</a>
-        <a href="#" onclick="filterCategory('tech')">Tech</a>
-        <a href="#" onclick="filterCategory('science')">Science</a>
-        <a href="#" onclick="filterCategory('health')">Health</a>
-        <a href="#" onclick="filterCategory('sports')">Sports</a>
+        <a href="#">World</a>
+        <a href="#">Entertainment</a>
+        <a href="#">Culture</a>
+        <a href="#">Politics</a>
+        <a href="#">Tech</a>
+        <a href="#">Sports</a>
       </div>
     </div>
   </nav>
 
   <!-- Main Content -->
   <div class="container">
-    <!-- Left Column (Main News) -->
-    <main>
-      <!-- Hero / Top Story (Your Fifi's Drag Race Story) -->
-      <section class="hero-section" id="hero-section">
-        <img src="https://images.unsplash.com/photo-1514525253440-b393452e8d26?auto=format&fit=crop&w=800&q=80"
+    
+    <!-- Article Header -->
+    <header class="article-header">
+      <span class="category-tag">Entertainment & Culture</span>
+      <h1>Fifi's Drag Race Season 4: Celebration of Artistry, Inclusivity, and Fierce Self-Expression</h1>
+      <div class="article-meta">
+        <span><i class="far fa-clock"></i> October 12, 2024</span> &nbsp;|&nbsp; 
+        <span><i class="far fa-user"></i> By Princess Louise Gonzales</span>
+      </div>
+    </header>
+
+    <!-- Hero Image -->
+    <img src="https://images.unsplash.com/photo-1514525253440-b393452e8d26?auto=format&fit=crop&w=1200&q=80" alt="Fifi's Drag Race Season 4" class="article-hero-img">
+
+    <!-- Article Body -->
+    <article class="article-content">
+      <p>Fifi's Drag Race successfully concluded its fourth season, produced by the Broadcasting students from the Hostel of Bulacan State University. The event once again proved to be a vibrant platform for creativity, inclusivity, and empowerment—celebrating the artistry and individuality of every performer who graced the stage.</p>
+
+      <p>Extraordinary, colorful, and dazzling showcases filled the venue with confidence, glamour, and fierce performances. Each contestant brought their unique style and charisma, captivating the audience with stunning looks and exceptional talent. From extravagant costumes to powerful lip-sync numbers, every act embodied passion, creativity, and authenticity—the true essence of drag.</p>
+
+      <blockquote class="quote">
+        "Hosted by Madam Fifi, the competition highlighted the importance of self-expression and freedom, giving performers the space to shine unapologetically."
+      </blockquote>
+
+      <p>Adding to the excitement, one of the previous season's standout candidates made a special appearance to show support and inspire the new batch of drag artists. The grand finale, held on Friday, October 10, transformed the venue into a dazzling stage of color, energy, and pride.</p>
+
+      <p>The event concluded with a grand awarding ceremony that honored the top performers who impressed the judges with their skill, creativity, and stage presence.</p>
+
+      <p>After weeks of preparation and breathtaking performances, <strong>VANILLAUXXE</strong> emerged as the new Fifi's Drag Race Season 4 Superstar, marking the end of yet another unforgettable season that celebrated not just drag but the power of being unapologetically yourself.</p>
+
+      <div class="source">via Princess Louise Gonzales</div>
+
+      <!-- Share Buttons -->
+      <div class="share-buttons">
+        <div class="share-btn"><i class="fab fa-facebook-f"></i> Share</div>
+        <div class="share-btn"><i class="fab fa-twitter"></i> Tweet</div>
+        <div class="share-btn"><i class="fab fa-linkedin-in"></i> Share</div>
+      </div>
+    </article>
+
+    <!-- Newsletter -->
+    <div class="newsletter-box" id="newsletter">
+      <h4>Subscribe to Sojourne News</h4>
+      <p>Get the latest entertainment news and updates delivered to your inbox.</p>
+      <form onsubmit="handleSubscribe(event)">
+        <input type="email" placeholder="Your email address" required />
+        <button type="submit">Subscribe Now</button>
+      </form>
+    </div>
+
+  </div>
+
+  <!-- Footer -->
+  <footer>
+    <div class="footer-grid">
+      <div class="footer-col">
+        <h4>SojournerNews</h4>
+        <p style="color: #cfd5e6; font-size: 0.9rem;">
+          Delivering global perspectives with integrity and depth.
+        </p>
+      </div>
+      <div class="footer-col">
+        <h4>Sections</h4>
+        <a href="#">World</a>
+        <a href="#">Entertainment</a>
+        <a href="#">Politics</a>
+        <a href="#">Business</a>
+      </div>
+      <div class="footer-col">
+        <h4>About</h4>
+        <a href="#">Our Story</a>
+        <a href="#">Careers</a>
+        <a href="#">Contact</a>
+      </div>
+      <div class="footer-col">
+        <h4>Follow Us</h4>
+        <a href="#"><i class="fab fa-facebook"></i> Facebook</a>
+        <a href="#"><i class="fab fa-twitter"></i> Twitter</a>
+        <a href="#"><i class="fab fa-instagram"></i> Instagram</a>
+      </div>
+    </div>
+    <div class="copyright">
+      &copy; 2024 SojournerNews. All Rights Reserved.
+    </div>
+  </footer>
+
+  <script>
+    // --- Set Current Date ---
+    const dateElement = document.getElementById('current-date');
+    const options = { weekday:
+      <script>
+    // --- Set Current Date ---
+    const dateElement = document.getElementById('current-date');
+    const options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
+    dateElement.textContent = new Date().toLocaleDateString('en-US', options);
+
+    // --- Toggle Mobile Menu ---
+    function toggleMenu() {
+      const navLinks = document.getElementById('nav-links');
+      navLinks.classList.toggle('show');
+    }
+
+    // --- Scroll to Subscribe ---
+    function scrollToSubscribe() {
+      document.getElementById('newsletter').scrollIntoView({ behavior: 'smooth' });
+    }
+
+    // --- Handle Newsletter Subscribe ---
+    function handleSubscribe(event) {
+      event.preventDefault();
+      const email = event.target.querySelector('input').value;
+      alert('Thank you for subscribing! \nEmail: ' + email);
+      event.target.reset();
+    }
+  </script>
+
+</body>
+</html>
