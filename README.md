@@ -1,8 +1,9 @@
+<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Sojourner News | Global Perspective</title>
+  <title>Sojourne News | Global Perspective</title>
 
   <!-- Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -346,123 +347,4 @@
     }
     .newsletter-box h4 { color: var(--white); margin-bottom: 0.5rem; }
     .newsletter-box p { font-size: 0.85rem; margin-bottom: 10px; }
-    .newsletter-box input {
-      width: 100%;
-      padding: 0.6rem;
-      margin-bottom: 0.5rem;
-      border: none;
-      border-radius: 4px;
-    }
-    .newsletter-box button {
-      width: 100%;
-      background: var(--accent);
-      color: var(--white);
-      border: none;
-      padding: 0.6rem;
-      font-weight: bold;
-      border-radius: 4px;
-      cursor: pointer;
-      transition: background 0.3s;
-    }
-    .newsletter-box button:hover {
-      background: #c87112; /* darker shade of accent for hover */
-    }
-
-    /* --- Footer --- */
-    footer {
-      background: var(--primary);
-      color: var(--white);
-      padding: 3rem 1rem;
-      margin-top: 3rem;
-    }
-
-    .footer-grid {
-      max-width: 1200px;
-      margin: 0 auto;
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-      gap: 2rem;
-    }
-
-    .footer-col h4 {
-      color: var(--accent);
-      margin-bottom: 1rem;
-      font-family: 'Inter', sans-serif;
-      text-transform: uppercase;
-      letter-spacing: 1px;
-    }
-
-    .footer-col ul li { margin-bottom: 0.5rem; }
-    .footer-col a { color: #cfd5e6; transition: color 0.3s; }
-    .footer-col a:hover { color: var(--accent); }
-
-    .copyright {
-      text-align: center;
-      margin-top: 2rem;
-      padding-top: 1rem;
-      border-top: 1px solid rgba(255,255,255,0.1);
-      font-size: 0.9rem;
-      color: #cfd5e6;
-    }
-
-    /* --- Mobile Responsiveness --- */
-    @media (max-width: 768px) {
-      .hero-section { grid-template-columns: 1fr; }
-      .hero-img { height: 250px; }
-      .container { grid-template-columns: 1fr; }
-      .articles-grid { grid-template-columns: 1fr; }
-      .nav-links { display: none; }
-      .brand { font-size: 1.5rem; }
-      aside { position: static; }
-      .top-bar span { display: block; margin: 5px 0; }
-    }
-  </style>
-</head>
-<body>
-
-  <!-- Top Info Bar -->
-  <div class="top-bar">
-    <span id="current-date"></span>
-    <span>New York, NY: 72°F</span>
-    <span>Subscribe</span>
-    <span>Login</span>
-  </div>
-
-  <!-- Breaking News -->
-  <div class="breaking-news">
-    <span>BREAKING</span>
-    Global leaders reach historic climate agreement at summit
-  </div>
-
-  <!-- Header -->
-  <header>
-    <div class="header-container">
-      <div class="brand">Sojourner<span>News</span></div>
-      <div class="header-actions">
-        <button onclick="scrollToSubscribe()">Subscribe</button>
-      </div>
-    </div>
-  </header>
-
-  <!-- Navigation -->
-  <nav>
-    <div class="nav-container">
-      <div class="nav-links">
-        <a href="#" onclick="filterCategory('all')">Home</a>
-        <a href="#" onclick="filterCategory('world')">World</a>
-        <a href="#" onclick="filterCategory('politics')">Politics</a>
-        <a href="#" onclick="filterCategory('business')">Business</a>
-        <a href="#" onclick="filterCategory('tech')">Tech</a>
-        <a href="#" onclick="filterCategory('science')">Science</a>
-        <a href="#" onclick="filterCategory('health')">Health</a>
-        <a href="#" onclick="filterCategory('sports')">Sports</a>
-      </div>
-    </div>
-  </nav>
-
-  <!-- Main Content -->
-  <div class="container">
-    <!-- Left Column (Main News) -->
-    <main>
-      <!-- Hero / Top Story -->
-      <section class="hero-section">
+    .news
