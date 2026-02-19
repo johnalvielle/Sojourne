@@ -2,7 +2,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Fifi's Drag Race Season 4 | Sojourne News</title>
+  <title>Fifi's Drag Race Season 4 | Sojourner News</title>
 
   <!-- Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -366,7 +366,7 @@
   <!-- Header -->
   <header>
     <div class="header-container">
-      <img src="Sojourne.jpeg" alt="Sojourne News Logo" class="brand-logo">
+      <img src="Sojourne.jpeg" alt="Sojourner News Logo" class="brand-logo">
       <div class="header-actions">
         <i class="fas fa-bars menu-toggle" onclick="toggleMenu()"></i>
         <button onclick="scrollToSubscribe()">Subscribe</button>
@@ -433,7 +433,7 @@
 
     <!-- Newsletter -->
     <div class="newsletter-box" id="newsletter">
-      <h4>Subscribe to Sojourne News</h4>
+      <h4>Subscribe to Sojourner News</h4>
       <p>Get the latest entertainment news and updates delivered to your inbox.</p>
       <form onsubmit="handleSubscribe(event)">
         <input type="email" placeholder="Your email address" required />
@@ -473,7 +473,7 @@
       </div>
     </div>
     <div class="copyright">
-      &copy; 2026 SojourneNews. All Rights Reserved.
+      &copy; 2026 SojournerNews. All Rights Reserved.
     </div>
   </footer>
 
