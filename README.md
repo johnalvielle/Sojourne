@@ -9,6 +9,9 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Merriweather:ital,wght@0,300;0,400;0,700;0,900;1,400&display=swap" rel="stylesheet" />
 
+  <!-- FontAwesome for Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
   <style>
     /* ===== Brand Palette =====
        Deep Navy   #252958
@@ -61,7 +64,7 @@
     /* --- Header --- */
     header {
       background: var(--white);
-      padding: 1.5rem 0;
+      padding: 1rem 0;
       border-bottom: 1px solid var(--border);
       position: sticky;
       top: 0;
@@ -79,14 +82,43 @@
     }
 
     .brand {
-      font-size: 2rem;
+      font-size: 1.8rem;
       font-weight: 900;
       font-family: 'Merriweather', serif;
       color: var(--primary);
       letter-spacing: -1px;
     }
-
     .brand span { color: var(--accent); }
+
+    .header-actions { display: flex; gap: 15px; align-items: center; }
+    
+    .search-box {
+      position: relative;
+    }
+    
+    .search-box input {
+      padding: 0.5rem 1rem 0.5rem 2rem;
+      border: 1px solid var(--border);
+      border-radius: 20px;
+      font-family: 'Inter', sans-serif;
+      width: 180px;
+      transition: width 0.3s;
+    }
+    .search-box input:focus { outline: none; border-color: var(--accent); width: 220px; }
+    .search-box i {
+      position: absolute;
+      left: 10px;
+      top: 50%;
+      transform: translateY(-50%);
+      color: var(--text-grey);
+    }
+
+    .menu-toggle {
+      display: none;
+      font-size: 1.5rem;
+      cursor: pointer;
+      color: var(--primary);
+    }
 
     .header-actions button {
       background: var(--primary);
@@ -111,15 +143,19 @@
       margin: 0 auto;
       display: flex;
       justify-content: center;
+      position: relative;
     }
 
-    .nav-links { display: flex; gap: 2rem; }
+    .nav-links { 
+      display: flex; 
+      gap: 2rem; 
+    }
 
     .nav-links a {
       display: block;
       padding: 1rem 0;
       font-weight: 600;
-      font-size: 0.95rem;
+      font-size: 0.9rem;
       text-transform: uppercase;
       color: var(--text-dark);
       position: relative;
@@ -138,8 +174,28 @@
       transition: width 0.3s;
     }
 
-    .nav-links a:hover { color: var(--primary); }
-    .nav-links a:hover::after { width: 100%; }
+    .nav-links a:hover, .nav-links a.active { color: var(--primary); }
+    .nav-links a:hover::after, .nav-links a.active::after { width: 100%; }
+
+    /* --- Mobile Nav --- */
+    @media (max-width: 768px) {
+      .menu-toggle { display: block; }
+      .nav-links {
+        display: none;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        width: 100%;
+        background: var(--white);
+        flex-direction: column;
+        border-bottom: 1px solid var(--border);
+        box-shadow: 0 5px 10px rgba(0,0,0,0.1);
+        z-index: 999;
+      }
+      .nav-links.show { display: flex; }
+      .nav-links a { padding: 1rem; border-bottom: 1px solid #eee; }
+      .search-box { display: none; } /* Hide search on mobile header for simplicity */
+    }
 
     /* --- Main Layout --- */
     .container {
@@ -184,7 +240,7 @@
       height: 400px;
       object-fit: cover;
       border-radius: 8px;
-      box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+      background-color: #eee;
     }
 
     .hero-content {
@@ -203,7 +259,7 @@
     }
 
     .hero-content h1 {
-      font-size: 2.5rem;
+      font-size: 2.2rem;
       line-height: 1.2;
       margin-bottom: 1rem;
     }
@@ -223,8 +279,21 @@
       border-radius: 4px;
       transition: background 0.3s;
       cursor: pointer;
+      width: fit-content;
     }
     .read-more:hover { background: var(--accent); }
+
+    /* --- Loading Skeleton --- */
+    .skeleton {
+      background: #eee;
+      background: linear-gradient(110deg, #ececec 8%, #f5f5f5 18%, #ececec 33%);
+      background-size: 200% 100%;
+      animation: 1.5s shine linear infinite;
+      border-radius: 4px;
+    }
+    @keyframes shine {
+      to { background-position-x: -200%; }
+    }
 
     /* --- Articles Grid --- */
     .section-title {
@@ -232,7 +301,22 @@
       border-left: 4px solid var(--accent);
       padding-left: 1rem;
       margin-bottom: 1.5rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
     }
+    
+    .refresh-btn {
+        font-size: 0.8rem;
+        color: var(--text-grey);
+        cursor: pointer;
+        font-family: 'Inter', sans-serif;
+        text-transform: none;
+        border: 1px solid var(--border);
+        padding: 5px 10px;
+        border-radius: 4px;
+    }
+    .refresh-btn:hover { color: var(--accent); border-color: var(--accent); }
 
     .articles-grid {
       display: grid;
@@ -260,12 +344,13 @@
       width: 100%;
       height: 200px;
       object-fit: cover;
+      background-color: #eee;
     }
 
     .card-content { padding: 1.2rem; flex-grow: 1; display: flex; flex-direction: column;}
 
     .card-content h3 {
-      font-size: 1.2rem;
+      font-size: 1.1rem;
       margin-bottom: 0.5rem;
       line-height: 1.4;
     }
@@ -275,6 +360,10 @@
       color: var(--text-grey);
       margin-bottom: 1rem;
       flex-grow: 1;
+      display: -webkit-box;
+      -webkit-line-clamp: 3;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
     }
 
     .meta {
@@ -301,7 +390,7 @@
       border-radius: 8px;
       height: fit-content;
       position: sticky;
-      top: 100px;
+      top: 90px;
     }
 
     aside h3 {
@@ -330,7 +419,7 @@
     }
 
     .sidebar-list h4 {
-      font-size: 1rem;
+      font-size: 0.95rem;
       font-family: 'Inter', sans-serif;
       font-weight: 600;
       margin-bottom: 0.3rem;
@@ -373,9 +462,7 @@
       cursor: pointer;
       transition: background 0.3s;
     }
-    .newsletter-box button:hover {
-      background: #c87112; 
-    }
+    .newsletter-box button:hover { background: #c87112; }
 
     /* --- Footer --- */
     footer {
@@ -414,102 +501,15 @@
       color: #cfd5e6;
     }
 
-    /* --- Mobile Responsiveness --- */
+    /* --- Responsive --- */
     @media (max-width: 768px) {
       .hero-section { grid-template-columns: 1fr; }
       .hero-img { height: 250px; }
       .container { grid-template-columns: 1fr; }
       .articles-grid { grid-template-columns: 1fr; }
-      .nav-links { display: none; } /* Simple hide for mobile demo */
       .brand { font-size: 1.5rem; }
       aside { position: static; }
       .top-bar { flex-direction: column; gap: 5px; }
     }
   </style>
 </head>
-<body>
-
-  <!-- Top Info Bar -->
-  <div class="top-bar">
-    <span id="current-date"></span>
-    <span>New York, NY: <span id="weather-temp">72°F</span></span>
-    <span onclick="scrollToSubscribe()">Subscribe</span>
-    <span>Login</span>
-  </div>
-
-  <!-- Breaking News -->
-  <div class="breaking-news">
-    <span>BREAKING</span>
-    <span id="breaking-text">Global leaders reach historic climate agreement at summit</span>
-  </div>
-
-  <!-- Header -->
-  <header>
-    <div class="header-container">
-      <div class="brand">Sojourne<span>News</span></div>
-      <div class="header-actions">
-        <button onclick="scrollToSubscribe()">Subscribe</button>
-      </div>
-    </div>
-  </header>
-
-  <!-- Navigation -->
-  <nav>
-    <div class="nav-container">
-      <div class="nav-links">
-        <a href="#" onclick="filterCategory('all')">Home</a>
-        <a href="#" onclick="filterCategory('world')">World</a>
-        <a href="#" onclick="filterCategory('politics')">Politics</a>
-        <a href="#" onclick="filterCategory('business')">Business</a>
-        <a href="#" onclick="filterCategory('tech')">Tech</a>
-        <a href="#" onclick="filterCategory('science')">Science</a>
-        <a href="#" onclick="filterCategory('health')">Health</a>
-        <a href="#" onclick="filterCategory('sports')">Sports</a>
-      </div>
-    </div>
-  </nav>
-
-  <!-- Main Content -->
-  <div class="container">
-    <!-- Left Column (Main News) -->
-    <main>
-      <!-- Hero / Top Story -->
-      <section class="hero-section" id="hero-section">
-        <!-- Content injected via JS -->
-      </section>
-
-      <!-- Latest Articles -->
-      <h2 class="section-title">Latest News</h2>
-      <div class="articles-grid" id="articles-grid">
-        <!-- Content injected via JS -->
-      </div>
-    </main>
-
-    <!-- Right Column (Sidebar) -->
-    <aside>
-      <h3>Trending Now</h3>
-      <ul class="sidebar-list" id="trending-list">
-        <!-- Content injected via JS -->
-      </ul>
-
-      <!-- Newsletter -->
-      <div class="newsletter-box" id="newsletter">
-        <h4>Daily Briefing</h4>
-        <p>Get the most important stories delivered to your inbox.</p>
-        <form onsubmit="handleSubscribe(event)">
-          <input type="email" placeholder="Your email address" required />
-          <button type="submit">Subscribe Now</button>
-        </form>
-      </div>
-    </aside>
-  </div>
-
-  <!-- Footer -->
-  <footer>
-    <div class="footer-grid">
-      <div class="footer-col">
-        <h4>SojournerNews</h4>
-        <p style="color: #cfd5e6; font-size: 0.9rem;">
-          Delivering global perspectives with integrity and depth. Your trusted source for world news.
-        </p>
-     
