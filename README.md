@@ -1,9 +1,4 @@
-<think>
-The user is asking for the second part of the code I started. Let me provide the complete code in one go to avoid confusion. I'll create a full, functional HTML file that includes all the CSS and JavaScript needed for a professional news website.
-</think>** for your professional news website. You can save this entire block as an `.html` file (e.g., `index.html`):
 
-```html
-<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
