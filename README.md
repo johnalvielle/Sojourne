@@ -403,7 +403,7 @@
     </header>
 
     <!-- Hero Image -->
-    <img src=" fifidragrace.jpeg " alt="Fifi's Drag Race Season 4" class="article-hero-img">
+    <img src="fifidragrace.jpeg" alt="Fifi's Drag Race Season 4" class="article-hero-img">
 
     <!-- Article Body -->
     <article class="article-content">
