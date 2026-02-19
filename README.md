@@ -400,7 +400,7 @@
     </header>
 
     <!-- Hero Image -->
-    <img src="https://images.unsplash.com/photo-1514525253440-b393452e8d26?auto=format&fit=crop&w=1200&q=80" alt="Fifi's Drag Race Season 4" class="article-hero-img">
+    <img src="[https://images.unsplash.com/photo-1514525253440-b393452e8d26?auto=format&fit=crop&w=1200&q=80](https://www.bing.com/images/search?view=detailV2&ccid=9zSJh94%2b&id=DFA33D086751073EE4A75D47E58C7D83CCC0802A&thid=OIP.9zSJh94-3lvrH_tOWxS2fQHaEK&mediaurl=https%3a%2f%2fres.cloudinary.com%2fdwzhqvxaz%2ff_auto%2cq_auto%2cfl_progressive%2fv1667213565%2fTitles%2fRuPaul%27s+Drag+Race%2fRPDR-S4_Prod_1920x1080.jpg&exph=1080&expw=1920&q=Drag+Race+Season+4&FORM=IRPRST&ck=175EAC139D7C72C77F2D960350CBE7E8&selectedIndex=2&itb=0)" alt="Fifi's Drag Race Season 4" class="article-hero-img">
 
     <!-- Article Body -->
     <article class="article-content">
