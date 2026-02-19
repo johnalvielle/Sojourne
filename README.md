@@ -1,5 +1,3 @@
-
-<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
@@ -448,7 +446,7 @@
   <!-- Header -->
   <header>
     <div class="header-container">
-      <div class="brand">Sojourner<span>News</span></div>
+      <div class="brand">Sojourne<span>News</span></div>
       <div class="header-actions">
         <button onclick="scrollToSubscribe()">Subscribe</button>
       </div>
