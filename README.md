@@ -397,7 +397,7 @@
       <span class="category-tag">Entertainment & Culture</span>
       <h1>Fifi's Drag Race Season 4: Celebration of Artistry, Inclusivity, and Fierce Self-Expression</h1>
       <div class="article-meta">
-        <span><i class="far fa-clock"></i> October 12, 2024</span> &nbsp;|&nbsp; 
+        <span><i class="far fa-clock"></i> October 21, 2025</span> &nbsp;|&nbsp; 
         <span><i class="far fa-user"></i> By Princess Louise Gonzales</span>
       </div>
     </header>
