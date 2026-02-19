@@ -28,7 +28,10 @@
       --text-grey:#666A75;
       --border:  #E2E5EF;
     }
-
+.brand-logo {
+  height: 60px; /* Adjust height as needed */
+  width: auto;
+}
     * { box-sizing: border-box; margin: 0; padding: 0; }
 
     body {
@@ -470,7 +473,7 @@
       </div>
     </div>
     <div class="copyright">
-      &copy; 2026 SojournerNews. All Rights Reserved.
+      &copy; 2026 SojourneNews. All Rights Reserved.
     </div>
   </footer>
 
