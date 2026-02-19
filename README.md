@@ -1,31 +1,36 @@
-
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Sojourner News | Global Perspective</title>
-  
+
   <!-- Fonts -->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Merriweather:ital,wght@0,300;0,400;0,700;0,900;1,400&display=swap" rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Merriweather:ital,wght@0,300;0,400;0,700;0,900;1,400&display=swap" rel="stylesheet" />
 
   <style>
+    /* ===== Brand Palette (from logo) =====
+       Deep Navy   #252958
+       Orange      #E2841C
+       White       #FDFDFD
+       Gray-Blue   #9396AC (supporting)
+    ====================================== */
     :root {
-      --primary: #060221;
-      --accent: #F19808;
-      --light-bg: #f4f4f4;
-      --white: #ffffff;
-      --text-dark: #1a1a1a;
-      --text-grey: #666;
-      --border: #e0e0e0;
+      --primary: #252958;     /* Deep Navy */
+      --accent:  #E2841C;     /* Orange */
+      --white:   #FDFDFD;     /* Brand white */
+      --light-bg:#F6F7FA;     /* Soft light based on gray-blue tint */
+      --text-dark:#1A1A1A;    /* Body copy for readability */
+      --text-grey:#666A75;    /* Muted text aligned with gray-blue family */
+      --border:  #E2E5EF;     /* Light border derived from gray-blue */
     }
 
     * { box-sizing: border-box; margin: 0; padding: 0; }
 
     body {
       font-family: 'Inter', sans-serif;
-      background-color: #fcfcfc;
+      background-color: var(--white);
       color: var(--text-dark);
       line-height: 1.6;
     }
@@ -89,7 +94,6 @@
       border-radius: 4px;
       transition: background 0.3s;
     }
-
     .header-actions button:hover { background: var(--accent); }
 
     /* --- Navigation --- */
@@ -145,18 +149,19 @@
 
     /* --- Breaking News Banner --- */
     .breaking-news {
-      background: #ff4444;
-      color: white;
+      background: var(--primary);
+      color: var(--white);
       padding: 0.8rem;
       text-align: center;
       font-weight: 600;
     }
     .breaking-news span {
-      background: var(--primary);
+      background: var(--accent);
       padding: 0.2rem 0.6rem;
       margin-right: 10px;
       border-radius: 3px;
       font-size: 0.8rem;
+      color: var(--white);
     }
 
     /* --- Hero Section --- */
@@ -266,7 +271,7 @@
 
     .meta {
       font-size: 0.8rem;
-      color: #999;
+      color: #9aa0b3; /* subtle grey-blue */
       display: flex;
       justify-content: space-between;
     }
@@ -299,7 +304,7 @@
 
     .sidebar-list li {
       margin-bottom: 1rem;
-      border-bottom: 1px solid #ddd;
+      border-bottom: 1px solid #dde2ef;
       padding-bottom: 1rem;
       cursor: pointer;
       transition: opacity 0.3s;
@@ -359,9 +364,11 @@
       cursor: pointer;
       transition: background 0.3s;
     }
-    .newsletter-box button:hover {68205; }
+    .newsletter-box button:hover {
+      background: #c87112; /* darker shade of accent for hover */
+    }
 
- background: #d    /* --- Footer --- */
+    /* --- Footer --- */
     footer {
       background: var(--primary);
       color: var(--white);
@@ -386,7 +393,7 @@
     }
 
     .footer-col ul li { margin-bottom: 0.5rem; }
-    .footer-col a { color: #ccc; transition: color 0.3s; }
+    .footer-col a { color: #cfd5e6; transition: color 0.3s; }
     .footer-col a:hover { color: var(--accent); }
 
     .copyright {
@@ -395,7 +402,7 @@
       padding-top: 1rem;
       border-top: 1px solid rgba(255,255,255,0.1);
       font-size: 0.9rem;
-      color: #ccc;
+      color: #cfd5e6;
     }
 
     /* --- Mobile Responsiveness --- */
@@ -455,67 +462,7 @@
 
   <!-- Main Content -->
   <div class="container">
-    
     <!-- Left Column (Main News) -->
     <main>
       <!-- Hero / Top Story -->
       <section class="hero-section">
-        <img src="https://images.unsplash.com/photo-1504711434969-e33886168f5c?q=80&w=1000&auto=format&fit=crop" alt="Main News" class="hero-img">
-        <div class="hero-content">
-          <span class="category-tag">Technology</span>
-          <h1>The Future of AI: How Machine Learning is Reshaping Industries</h1>
-          <p>Artificial intelligence continues to revolutionize the way businesses operate, from healthcare to finance.</p>
-          <a href="#" class="read-more" onclick="openArticle('AI Revolution')">Read Full Story</a>
-        </div>
-      </section>
-
-      <!-- Latest Stories -->
-      <h2 class="section-title">Latest Stories</h2>
-      <div class="articles-grid" id="articlesGrid">
-        
-        <!-- Article 1 -->
-        <article class="news-card" data-category="business" onclick="openArticle('Global Markets')">
-          <img src="https://images.unsplash.com/photo-1526304640152-d4619684e484?q=80&w=600&auto=format&fit=crop" alt="Business News">
-          <div class="card-content">
-            <span class="category-label">Business</span>
-            <h3>Global Markets Rally Amid Economic Optimism</h3>
-            <p>Stock markets around the world saw significant gains as investors respond to positive economic data.</p>
-            <div class="meta">
-              <span>2 hours ago</span>
-              <span>5 min read</span>
-            </div>
-          </div>
-        </article>
-
-        <!-- Article 2 -->
-        <article class="news-card" data-category="sports" onclick="openArticle('Championship Finals')">
-          <img src="https://images.unsplash.com/photo-1461896836934-ffe607ba8211?q=80&w=600&auto=format&fit=crop" alt="Sports News">
-          <div class="card-content">
-            <span class="category-label">Sports</span>
-            <h3>Championship Finals: A Historic Night for Athletics</h3>
-            <p>Records were broken and history was made in what experts are calling the greatest finale.</p>
-            <div class="meta">
-              <span>4 hours ago</span>
-              <span>3 min read</span>
-            </div>
-          </div>
-        </article>
-
-        <!-- Article 3 -->
-        <article class="news-card" data-category="health" onclick="openArticle('Cancer Research')">
-          <img src="https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?q=80&w=600&auto=format&fit=crop" alt="Health News">
-          <div class="card-content">
-            <span class="category-label">Health</span>
-            <h3>New Study Reveals Breakthrough in Cancer Research</h3>
-            <p>Scientists have identified a promising new treatment method with incredible results.</p>
-            <div class="meta">
-              <span>6 hours ago</span>
-              <span>8 min read</span>
-            </div>
-          </div>
-        </article>
-
-        <!-- Article 4 -->
-        <article class="news-card" data-category="tech" onclick="openArticle('Smartphones 2026')">
-          <img src="https://images.unsplash.com/photo-1518770660439-4636190af475?q=80&w=600&auto=format&fit=crop" alt="Tech News">
-          <div
