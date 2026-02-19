@@ -470,7 +470,7 @@
       </div>
     </div>
     <div class="copyright">
-      &copy; 2024 SojournerNews. All Rights Reserved.
+      &copy; 2026 SojournerNews. All Rights Reserved.
     </div>
   </footer>
 
