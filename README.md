@@ -1,3 +1,8 @@
+<think>
+The user is asking for the second part of the code I started. Let me provide the complete code in one go to avoid confusion. I'll create a full, functional HTML file that includes all the CSS and JavaScript needed for a professional news website.
+</think>** for your professional news website. You can save this entire block as an `.html` file (e.g., `index.html`):
+
+```html
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -5,15 +10,15 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Sojourner News | Global Perspective</title>
   
-  <!-- Fonts: Merriweather for headings, Inter for body -->
+  <!-- Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Merriweather:ital,wght@0,300;0,400;0,700;0,900;1,400&display=swap" rel="stylesheet">
 
   <style>
     :root {
-      --primary: #060221; /* Blue Magenta */
-      --accent: #F19808;  /* Gamboge */
+      --primary: #060221;
+      --accent: #F19808;
       --light-bg: #f4f4f4;
       --white: #ffffff;
       --text-dark: #1a1a1a;
@@ -21,11 +26,7 @@
       --border: #e0e0e0;
     }
 
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
 
     body {
       font-family: 'Inter', sans-serif;
@@ -39,7 +40,7 @@
       color: var(--primary);
     }
 
-    a { text-decoration: none; color: inherit; transition: 0.3s; }
+    a { text-decoration: none; color: inherit; }
     ul { list-style: none; }
 
     /* --- Top Bar --- */
@@ -50,7 +51,8 @@
       padding: 0.5rem 0;
       text-align: center;
     }
-    .top-bar span { margin: 0 10px; }
+    .top-bar span { margin: 0 10px; cursor: pointer; }
+    .top-bar span:hover { color: var(--accent); }
 
     /* --- Header --- */
     header {
@@ -86,10 +88,11 @@
       background: var(--primary);
       color: var(--white);
       border: none;
-      padding: 0.5rem 1rem;
+      padding: 0.6rem 1.2rem;
       font-weight: 600;
       cursor: pointer;
       border-radius: 4px;
+      transition: background 0.3s;
     }
 
     .header-actions button:hover { background: var(--accent); }
@@ -105,13 +108,9 @@
       margin: 0 auto;
       display: flex;
       justify-content: center;
-      position: relative;
     }
 
-    .nav-links {
-      display: flex;
-      gap: 2rem;
-    }
+    .nav-links { display: flex; gap: 2rem; }
 
     .nav-links a {
       display: block;
@@ -121,6 +120,8 @@
       text-transform: uppercase;
       color: var(--text-dark);
       position: relative;
+      transition: color 0.3s;
+      cursor: pointer;
     }
 
     .nav-links a::after {
@@ -147,7 +148,23 @@
       gap: 2rem;
     }
 
-    /* --- Hero Section (Featured) --- */
+    /* --- Breaking News Banner --- */
+    .breaking-news {
+      background: #ff4444;
+      color: white;
+      padding: 0.8rem;
+      text-align: center;
+      font-weight: 600;
+    }
+    .breaking-news span {
+      background: var(--primary);
+      padding: 0.2rem 0.6rem;
+      margin-right: 10px;
+      border-radius: 3px;
+      font-size: 0.8rem;
+    }
+
+    /* --- Hero Section --- */
     .hero-section {
       grid-column: 1 / -1;
       display: grid;
@@ -200,10 +217,18 @@
       color: var(--white);
       font-weight: 600;
       border-radius: 4px;
+      transition: background 0.3s;
     }
     .read-more:hover { background: var(--accent); }
 
     /* --- Articles Grid --- */
+    .section-title {
+      font-size: 1.5rem;
+      border-left: 4px solid var(--accent);
+      padding-left: 1rem;
+      margin-bottom: 1.5rem;
+    }
+
     .articles-grid {
       display: grid;
       grid-template-columns: repeat(2, 1fr);
@@ -216,6 +241,7 @@
       border-radius: 8px;
       overflow: hidden;
       transition: transform 0.3s ease, box-shadow 0.3s ease;
+      cursor: pointer;
     }
 
     .news-card:hover {
@@ -250,12 +276,23 @@
       justify-content: space-between;
     }
 
+    .category-label {
+      color: var(--accent);
+      font-weight: 700;
+      text-transform: uppercase;
+      font-size: 0.75rem;
+      margin-bottom: 0.5rem;
+      display: block;
+    }
+
     /* --- Sidebar --- */
     aside {
       background: var(--light-bg);
       padding: 1.5rem;
       border-radius: 8px;
       height: fit-content;
+      position: sticky;
+      top: 100px;
     }
 
     aside h3 {
@@ -269,6 +306,18 @@
       margin-bottom: 1rem;
       border-bottom: 1px solid #ddd;
       padding-bottom: 1rem;
+      cursor: pointer;
+      transition: opacity 0.3s;
+    }
+
+    .sidebar-list li:hover { opacity: 0.7; }
+    .sidebar-list li:last-child { border-bottom: none; }
+
+    .sidebar-list .rank {
+      color: var(--accent);
+      font-weight: 900;
+      font-size: 1.2rem;
+      margin-right: 8px;
     }
 
     .sidebar-list h4 {
@@ -276,8 +325,17 @@
       font-family: 'Inter', sans-serif;
       font-weight: 600;
       margin-bottom: 0.3rem;
+      display: inline;
     }
 
+    .sidebar-list small {
+      display: block;
+      color: var(--text-grey);
+      font-size: 0.8rem;
+      margin-top: 0.3rem;
+    }
+
+    /* --- Newsletter --- */
     .newsletter-box {
       background: var(--primary);
       color: var(--white);
@@ -287,9 +345,10 @@
       text-align: center;
     }
     .newsletter-box h4 { color: var(--white); margin-bottom: 0.5rem; }
+    .newsletter-box p { font-size: 0.85rem; margin-bottom: 10px; }
     .newsletter-box input {
       width: 100%;
-      padding: 0.5rem;
+      padding: 0.6rem;
       margin-bottom: 0.5rem;
       border: none;
       border-radius: 4px;
@@ -299,13 +358,15 @@
       background: var(--accent);
       color: var(--white);
       border: none;
-      padding: 0.5rem;
+      padding: 0.6rem;
       font-weight: bold;
- 4px;
-      border-radius:      cursor: pointer;
+      border-radius: 4px;
+      cursor: pointer;
+      transition: background 0.3s;
     }
+    .newsletter-box button:hover {68205; }
 
-    /* --- Footer --- */
+ background: #d    /* --- Footer --- */
     footer {
       background: var(--primary);
       color: var(--white);
@@ -330,6 +391,7 @@
     }
 
     .footer-col ul li { margin-bottom: 0.5rem; }
+    .footer-col a { color: #ccc; transition: color 0.3s; }
     .footer-col a:hover { color: var(--accent); }
 
     .copyright {
@@ -347,8 +409,10 @@
       .hero-img { height: 250px; }
       .container { grid-template-columns: 1fr; }
       .articles-grid { grid-template-columns: 1fr; }
-      .nav-links { display: none; } /* Hidden on mobile for simplicity */
+      .nav-links { display: none; }
       .brand { font-size: 1.5rem; }
+      aside { position: static; }
+      .top-bar span { display: block; margin: 5px 0; }
     }
   </style>
 </head>
@@ -362,12 +426,18 @@
     <span>Login</span>
   </div>
 
+  <!-- Breaking News -->
+  <div class="breaking-news">
+    <span>BREAKING</span>
+    Global leaders reach historic climate agreement at summit
+  </div>
+
   <!-- Header -->
   <header>
     <div class="header-container">
       <div class="brand">Sojourner<span>News</span></div>
       <div class="header-actions">
-        <button>Subscribe</button>
+        <button onclick="scrollToSubscribe()">Subscribe</button>
       </div>
     </div>
   </header>
@@ -376,14 +446,14 @@
   <nav>
     <div class="nav-container">
       <div class="nav-links">
-        <a href="#">Home</a>
-        <a href="#">World</a>
-        <a href="#">Politics</a>
-        <a href="#">Business</a>
-        <a href="#">Tech</a>
-        <a href="#">Science</a>
-        <a href="#">Health</a>
-        <a href="#">Sports</a>
+        <a href="#" onclick="filterCategory('all')">Home</a>
+        <a href="#" onclick="filterCategory('world')">World</a>
+        <a href="#" onclick="filterCategory('politics')">Politics</a>
+        <a href="#" onclick="filterCategory('business')">Business</a>
+        <a href="#" onclick="filterCategory('tech')">Tech</a>
+        <a href="#" onclick="filterCategory('science')">Science</a>
+        <a href="#" onclick="filterCategory('health')">Health</a>
+        <a href="#" onclick="filterCategory('sports')">Sports</a>
       </div>
     </div>
   </nav>
@@ -397,22 +467,22 @@
       <section class="hero-section">
         <img src="https://images.unsplash.com/photo-1504711434969-e33886168f5c?q=80&w=1000&auto=format&fit=crop" alt="Main News" class="hero-img">
         <div class="hero-content">
-          <div class="category-tag">Technology</div>
+          <span class="category-tag">Technology</span>
           <h1>The Future of AI: How Machine Learning is Reshaping Industries</h1>
-          <p>Artificial intelligence continues to revolutionize the way businesses operate, from healthcare to finance. Experts weigh in on what's next.</p>
-          <a href="#" class="read-more">Read Full Story</a>
+          <p>Artificial intelligence continues to revolutionize the way businesses operate, from healthcare to finance.</p>
+          <a href="#" class="read-more" onclick="openArticle('AI Revolution')">Read Full Story</a>
         </div>
       </section>
 
-      <!-- Secondary Articles Grid -->
-      <h2 style="margin-bottom: 1rem;">Latest Stories</h2>
-      <div class="articles-grid">
+      <!-- Latest Stories -->
+      <h2 class="section-title">Latest Stories</h2>
+      <div class="articles-grid" id="articlesGrid">
         
         <!-- Article 1 -->
-        <article class="news-card">
+        <article class="news-card" data-category="business" onclick="openArticle('Global Markets')">
           <img src="https://images.unsplash.com/photo-1526304640152-d4619684e484?q=80&w=600&auto=format&fit=crop" alt="Business News">
           <div class="card-content">
-            <span style="color: var(--accent); font-weight: bold; font-size: 0.75rem; text-transform: uppercase;">Business</span>
+            <span class="category-label">Business</span>
             <h3>Global Markets Rally Amid Economic Optimism</h3>
             <p>Stock markets around the world saw significant gains as investors respond to positive economic data.</p>
             <div class="meta">
@@ -423,12 +493,12 @@
         </article>
 
         <!-- Article 2 -->
-        <article class="news-card">
+        <article class="news-card" data-category="sports" onclick="openArticle('Championship Finals')">
           <img src="https://images.unsplash.com/photo-1461896836934-ffe607ba8211?q=80&w=600&auto=format&fit=crop" alt="Sports News">
           <div class="card-content">
-            <span style="color: var(--accent); font-weight: bold; font-size: 0.75rem; text-transform: uppercase;">Sports</span>
+            <span class="category-label">Sports</span>
             <h3>Championship Finals: A Historic Night for Athletics</h3>
-            <p>Records were broken and history was made in what experts are calling the greatest finale in decades.</p>
+            <p>Records were broken and history was made in what experts are calling the greatest finale.</p>
             <div class="meta">
               <span>4 hours ago</span>
               <span>3 min read</span>
@@ -437,12 +507,12 @@
         </article>
 
         <!-- Article 3 -->
-        <article class="news-card">
+        <article class="news-card" data-category="health" onclick="openArticle('Cancer Research')">
           <img src="https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?q=80&w=600&auto=format&fit=crop" alt="Health News">
           <div class="card-content">
-            <span style="color: var(--accent); font-weight: bold; font-size: 0.75rem; text-transform: uppercase;">Health</span>
+            <span class="category-label">Health</span>
             <h3>New Study Reveals Breakthrough in Cancer Research</h3>
-            <p>Scientists have identified a promising new treatment method that shows incredible results in early trials.</p>
+            <p>Scientists have identified a promising new treatment method with incredible results.</p>
             <div class="meta">
               <span>6 hours ago</span>
               <span>8 min read</span>
@@ -451,58 +521,6 @@
         </article>
 
         <!-- Article 4 -->
-        <article class="news-card">
+        <article class="news-card" data-category="tech" onclick="openArticle('Smartphones 2026')">
           <img src="https://images.unsplash.com/photo-1518770660439-4636190af475?q=80&w=600&auto=format&fit=crop" alt="Tech News">
-          <div class="card-content">
-            <span style="color: var(--accent); font-weight: bold; font-size: 0.75rem; text-transform: uppercase;">Technology</span>
-            <h3>Next Gen Smartphones: What to Expect in 2026</h3>
-            <p>Leaked details suggest the next wave of flagship devices will focus on sustainable materials.</p>
-            <div class="meta">
-              <span>8 hours ago</span>
-              <span>4 min read</span>
-            </div>
-          </div>
-        </article>
-
-      </div>
-    </main>
-
-    <!-- Right Sidebar -->
-    <aside>
-      <h3>Trending Now</h3>
-      <ul class="sidebar-list">
-        <li>
-          <span style="color: var(--accent); font-weight: bold;">01</span>
-          <h4>Climate Summit Reaches Historic Agreement</h4>
-          <small>World leaders commit to new carbon targets</small>
-        </li>
-        <li>
-          <span style="color: var(--accent); font-weight: bold;">02</span>
-          <h4>Space Tourism Takes Off with First Commercial Flight</h4>
-          <small>Private citizens reach the edge of space</small>
-        </li>
-        <li>
-          <span style="color: var(--accent); font-weight: bold;">03</span>
-          <h4>Crypto Markets See Unexpected Volatility</h4>
-          <small>Investors cautious amid new regulations</small>
-        </li>
-        <li>
-          <span style="color: var(--accent); font-weight: bold;">04</span>
-          <h4>New Art Exhibit Draws Record Crowds</h4>
-          <small>Modern museum welcomes largest attendance</small>
-        </li>
-        <li>
-          <span style="color: var(--accent); font-weight: bold;">05</span>
-          <h4>Electric Vehicles Outsell Gas Cars in Europe</h4>
-          <small>A major milestone for green transportation</small>
-        </li>
-      </ul>
-
-      <!-- Newsletter Box -->
-      <div class="newsletter-box">
-        <h4>The Daily Briefing</h4>
-        <p style="font-size: 0.85rem; margin-bottom: 10px;">Get the most important stories delivered to your inbox every morning.</p>
-        <form onsubmit="event.preventDefault(); alert('Thanks for subscribing!');">
-          <input type="email" placeholder="Your email address" required>
-          <button type="submit">Subscribe</button>
-        </form>
+          <div
