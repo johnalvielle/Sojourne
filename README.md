@@ -1,3 +1,34 @@
+<think>
+The user wants me to complete the code they provided. Looking at the previous response, it was cut off mid-style (inside the newsletter box). The user is asking for the code to be 100% complete and functional.
+
+I need to:
+1.  Finish the CSS that was cut off (Newsletter section and Footer).
+2.  Complete the HTML body structure (which seemed to be cut off in their provided snippet starting from "<!-- Hero / Top Story -->").
+3.  Add the JavaScript to make it functional (populate news, handle dates, filtering, etc.).
+
+I will provide the full, merged code. I will assume the user wants the complete file from `<!DOCTYPE html>` to the closing `</html>`.
+
+Since I cannot fetch *actual* real-time news without an API key (which requires backend proxying to avoid CORS issues usually), I will provide a robust **mock data** structure in the JavaScript so the site functions immediately with "fake" real-time data. This is standard for frontend demos.
+
+Let's assemble the full code.
+
+**Plan:**
+1.  **HTML**: Complete the structure including the Hero section, Article Grid, Sidebar, Newsletter, and Footer.
+2.  **CSS**: Ensure the cut-off CSS (Newsletter/Footer) is finished.
+3.  **JS**: Add script to:
+    *   Show current date.
+    *   Populate the Hero section.
+    *   Populate the Article Grid.
+    *   Populate the Sidebar (Trending).
+    *   Handle Navigation filtering (mock logic).
+    *   Handle Newsletter submission (mock alert).
+
+Let's write the code.
+</think>100% complete and functional code**. I have filled in the missing HTML structure, finished the CSS, and added JavaScript to dynamically populate the news, handle the date, manage category filtering, and simulate a working newsletter form.
+
+You can save this as an `.html` file (e.g., `index.html`) and open it in any browser.
+
+```html
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -11,20 +42,20 @@
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Merriweather:ital,wght@0,300;0,400;0,700;0,900;1,400&display=swap" rel="stylesheet" />
 
   <style>
-    /* ===== Brand Palette (from logo) =====
+    /* ===== Brand Palette =====
        Deep Navy   #252958
        Orange      #E2841C
        White       #FDFDFD
-       Gray-Blue   #9396AC (supporting)
+       Gray-Blue   #9396AC
     ====================================== */
     :root {
-      --primary: #252958;     /* Deep Navy */
-      --accent:  #E2841C;     /* Orange */
-      --white:   #FDFDFD;     /* Brand white */
-      --light-bg:#F6F7FA;     /* Soft light based on gray-blue tint */
-      --text-dark:#1A1A1A;    /* Body copy for readability */
-      --text-grey:#666A75;    /* Muted text aligned with gray-blue family */
-      --border:  #E2E5EF;     /* Light border derived from gray-blue */
+      --primary: #252958;
+      --accent:  #E2841C;
+      --white:   #FDFDFD;
+      --light-bg:#F6F7FA;
+      --text-dark:#1A1A1A;
+      --text-grey:#666A75;
+      --border:  #E2E5EF;
     }
 
     * { box-sizing: border-box; margin: 0; padding: 0; }
@@ -51,8 +82,12 @@
       font-size: 0.8rem;
       padding: 0.5rem 0;
       text-align: center;
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+      flex-wrap: wrap;
     }
-    .top-bar span { margin: 0 10px; cursor: pointer; }
+    .top-bar span { cursor: pointer; }
     .top-bar span:hover { color: var(--accent); }
 
     /* --- Header --- */
@@ -219,6 +254,7 @@
       font-weight: 600;
       border-radius: 4px;
       transition: background 0.3s;
+      cursor: pointer;
     }
     .read-more:hover { background: var(--accent); }
 
@@ -243,6 +279,8 @@
       overflow: hidden;
       transition: transform 0.3s ease, box-shadow 0.3s ease;
       cursor: pointer;
+      display: flex;
+      flex-direction: column;
     }
 
     .news-card:hover {
@@ -256,7 +294,7 @@
       object-fit: cover;
     }
 
-    .card-content { padding: 1.2rem; }
+    .card-content { padding: 1.2rem; flex-grow: 1; display: flex; flex-direction: column;}
 
     .card-content h3 {
       font-size: 1.2rem;
@@ -268,13 +306,15 @@
       font-size: 0.9rem;
       color: var(--text-grey);
       margin-bottom: 1rem;
+      flex-grow: 1;
     }
 
     .meta {
       font-size: 0.8rem;
-      color: #9aa0b3; /* subtle grey-blue */
+      color: #9aa0b3;
       display: flex;
       justify-content: space-between;
+      margin-top: auto;
     }
 
     .category-label {
@@ -347,4 +387,161 @@
     }
     .newsletter-box h4 { color: var(--white); margin-bottom: 0.5rem; }
     .newsletter-box p { font-size: 0.85rem; margin-bottom: 10px; }
-    .news
+    .newsletter-box input {
+      width: 100%;
+      padding: 0.6rem;
+      margin-bottom: 0.5rem;
+      border: none;
+      border-radius: 4px;
+    }
+    .newsletter-box button {
+      width: 100%;
+      background: var(--accent);
+      color: var(--white);
+      border: none;
+      padding: 0.6rem;
+      font-weight: bold;
+      border-radius: 4px;
+      cursor: pointer;
+      transition: background 0.3s;
+    }
+    .newsletter-box button:hover {
+      background: #c87112; 
+    }
+
+    /* --- Footer --- */
+    footer {
+      background: var(--primary);
+      color: var(--white);
+      padding: 3rem 1rem;
+      margin-top: 3rem;
+    }
+
+    .footer-grid {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 2rem;
+    }
+
+    .footer-col h4 {
+      color: var(--accent);
+      margin-bottom: 1rem;
+      font-family: 'Inter', sans-serif;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+
+    .footer-col ul li { margin-bottom: 0.5rem; }
+    .footer-col a { color: #cfd5e6; transition: color 0.3s; }
+    .footer-col a:hover { color: var(--accent); }
+
+    .copyright {
+      text-align: center;
+      margin-top: 2rem;
+      padding-top: 1rem;
+      border-top: 1px solid rgba(255,255,255,0.1);
+      font-size: 0.9rem;
+      color: #cfd5e6;
+    }
+
+    /* --- Mobile Responsiveness --- */
+    @media (max-width: 768px) {
+      .hero-section { grid-template-columns: 1fr; }
+      .hero-img { height: 250px; }
+      .container { grid-template-columns: 1fr; }
+      .articles-grid { grid-template-columns: 1fr; }
+      .nav-links { display: none; } /* Simple hide for mobile demo */
+      .brand { font-size: 1.5rem; }
+      aside { position: static; }
+      .top-bar { flex-direction: column; gap: 5px; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Top Info Bar -->
+  <div class="top-bar">
+    <span id="current-date"></span>
+    <span>New York, NY: <span id="weather-temp">72°F</span></span>
+    <span onclick="scrollToSubscribe()">Subscribe</span>
+    <span>Login</span>
+  </div>
+
+  <!-- Breaking News -->
+  <div class="breaking-news">
+    <span>BREAKING</span>
+    <span id="breaking-text">Global leaders reach historic climate agreement at summit</span>
+  </div>
+
+  <!-- Header -->
+  <header>
+    <div class="header-container">
+      <div class="brand">Sojourner<span>News</span></div>
+      <div class="header-actions">
+        <button onclick="scrollToSubscribe()">Subscribe</button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Navigation -->
+  <nav>
+    <div class="nav-container">
+      <div class="nav-links">
+        <a href="#" onclick="filterCategory('all')">Home</a>
+        <a href="#" onclick="filterCategory('world')">World</a>
+        <a href="#" onclick="filterCategory('politics')">Politics</a>
+        <a href="#" onclick="filterCategory('business')">Business</a>
+        <a href="#" onclick="filterCategory('tech')">Tech</a>
+        <a href="#" onclick="filterCategory('science')">Science</a>
+        <a href="#" onclick="filterCategory('health')">Health</a>
+        <a href="#" onclick="filterCategory('sports')">Sports</a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Main Content -->
+  <div class="container">
+    <!-- Left Column (Main News) -->
+    <main>
+      <!-- Hero / Top Story -->
+      <section class="hero-section" id="hero-section">
+        <!-- Content injected via JS -->
+      </section>
+
+      <!-- Latest Articles -->
+      <h2 class="section-title">Latest News</h2>
+      <div class="articles-grid" id="articles-grid">
+        <!-- Content injected via JS -->
+      </div>
+    </main>
+
+    <!-- Right Column (Sidebar) -->
+    <aside>
+      <h3>Trending Now</h3>
+      <ul class="sidebar-list" id="trending-list">
+        <!-- Content injected via JS -->
+      </ul>
+
+      <!-- Newsletter -->
+      <div class="newsletter-box" id="newsletter">
+        <h4>Daily Briefing</h4>
+        <p>Get the most important stories delivered to your inbox.</p>
+        <form onsubmit="handleSubscribe(event)">
+          <input type="email" placeholder="Your email address" required />
+          <button type="submit">Subscribe Now</button>
+        </form>
+      </div>
+    </aside>
+  </div>
+
+  <!-- Footer -->
+  <footer>
+    <div class="footer-grid">
+      <div class="footer-col">
+        <h4>SojournerNews</h4>
+        <p style="color: #cfd5e6; font-size: 0.9rem;">
+          Delivering global perspectives with integrity and depth. Your trusted source for world news.
+        </p>
+     
