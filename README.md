@@ -497,4 +497,21 @@
     <div class="nav-container">
       <div class="nav-links" id="nav-links">
         <a href="#" onclick="filterCategory('all')">Home</a>
-        <a href="#" onclick="filterCategory('world')">
+        <a href="#" onclick="filterCategory('world')">World</a>
+        <a href="#" onclick="filterCategory('politics')">Politics</a>
+        <a href="#" onclick="filterCategory('business')">Business</a>
+        <a href="#" onclick="filterCategory('tech')">Tech</a>
+        <a href="#" onclick="filterCategory('science')">Science</a>
+        <a href="#" onclick="filterCategory('health')">Health</a>
+        <a href="#" onclick="filterCategory('sports')">Sports</a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Main Content -->
+  <div class="container">
+    <!-- Left Column (Main News) -->
+    <main>
+      <!-- Hero / Top Story (Your Fifi's Drag Race Story) -->
+      <section class="hero-section" id="hero-section">
+        <img src="https://images.unsplash.com/photo-1514525253440-b393452e8d26?auto=format&fit=crop&w=800&q=80"
